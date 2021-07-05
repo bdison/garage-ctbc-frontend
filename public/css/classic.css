@@ -9983,11 +9983,11 @@ body {
   min-width: 250px;
   max-width: 250px;
   transition: margin-left 0.4s ease-in-out, left 0.4s ease-in-out;
-  background-color: #1C6D22;
+  background-color: #DB3D44;
   border-right: 0; }
 
 .sidebar-content {
-  background-color: #1C6D22;
+  background-color: #DB3D44;
   transition: margin-left 0.4s ease-in-out, left 0.4s ease-in-out; }
   .sidebar-sticky .sidebar-content {
     border-right: 0; }
@@ -10013,7 +10013,7 @@ a.sidebar-link {
   padding: 0.75rem 1.5rem;
   color: #fff;
   font-weight: 400;
-  background-color: #1C6D22;
+  background-color: #DB3D44;
   transition: background .1s ease-in-out;
   position: relative;
   text-decoration: none;
@@ -10028,14 +10028,14 @@ a.sidebar-link {
 
 .sidebar-link:hover {
   color: #fff;
-  background-color: #1C6D22; }
+  background-color: #d82c33; }
   .sidebar-link:hover svg {
     color: #fff; }
 
 .sidebar-item.active > .sidebar-link,
 .sidebar-item.active .sidebar-link:hover {
   color: #fff;
-  background-color: #1C6D22; }
+  background-color: #d82c33; }
   .sidebar-item.active > .sidebar-link svg,
   .sidebar-item.active .sidebar-link:hover svg {
     color: #fff; }
@@ -10043,17 +10043,17 @@ a.sidebar-link {
 .sidebar-dropdown .sidebar-link {
   padding: 0.625rem 1.5rem 0.625rem 2.75rem;
   color: #adb5bd;
-  background-color: #1C6D22;
+  background-color: #d9343c;
   font-weight: 400; }
 
 .sidebar-dropdown .sidebar-item .sidebar-link:hover {
   color: #e9ecef;
-  background-color: #1C6D22;
+  background-color: #d82c33;
   font-weight: 400; }
 
 .sidebar-dropdown .sidebar-item.active .sidebar-link {
   color: #e9ecef;
-  background-color: #1C6D22;
+  background-color: #d82c33;
   font-weight: 400; }
 
 .sidebar [data-toggle="collapse"] {
@@ -10122,7 +10122,7 @@ a.sidebar-link {
   bottom: 0;
   left: 0;
   position: fixed;
-  background-color: #1C6D22;
+  background-color: #d9343c;
   min-width: 250px;
   max-width: 250px;
   color: #e9ecef;
