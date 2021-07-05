@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Interstate';
+  src: local('Interstate'), url(../fonts/Interstate/Interstate-Light-webfont.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Interstate';
+    font-weight: 300;
+    src: local('Interstate'), url(../fonts/Interstate/Interstate-ExtraLight-webfont.woff) format('woff"');
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZvbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UseUJBQXlCO0VBQ3pCLCtGQUErRjtBQUNqRzs7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixnQkFBZ0I7SUFDaEIscUdBQXFHO0FBQ3pHIiwiZmlsZSI6ImZvbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGZvbnQtZmFjZSB7XG4gIGZvbnQtZmFtaWx5OiAnSW50ZXJzdGF0ZSc7XG4gIHNyYzogbG9jYWwoJ0ludGVyc3RhdGUnKSwgdXJsKC4uL2ZvbnRzL0ludGVyc3RhdGUvSW50ZXJzdGF0ZS1MaWdodC13ZWJmb250LndvZmYpIGZvcm1hdCgnd29mZicpO1xufVxuXG5AZm9udC1mYWNlIHtcbiAgICBmb250LWZhbWlseTogJ0ludGVyc3RhdGUnO1xuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XG4gICAgc3JjOiBsb2NhbCgnSW50ZXJzdGF0ZScpLCB1cmwoLi4vZm9udHMvSW50ZXJzdGF0ZS9JbnRlcnN0YXRlLUV4dHJhTGlnaHQtd2ViZm9udC53b2ZmKSBmb3JtYXQoJ3dvZmZcIicpO1xufSJdfQ== */

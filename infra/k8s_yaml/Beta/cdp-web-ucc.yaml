@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "beta-cdp-web-ucc-deployment"
+  namespace: "beta-cdp-web"
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: "beta-cdp-web-ucc"
+    spec:
+      containers:
+      - image: #replace_new_image_url
+        imagePullPolicy: Always
+        name: "beta-cdp-web-ucc"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: config-volume
+            mountPath: /usr/share/nginx/html/config.js
+            subPath: config.js
+      volumes:
+      - name: config-volume
+        configMap:
+          name: ucc-config-js
+      nodeSelector:
+        project: "cdp"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: beta-cdp-web-ucc-service
+  namespace: beta-cdp-web
+spec:
+  type: NodePort
+  ports:
+  -  port: 80
+  selector:
+    app: beta-cdp-web-ucc
+

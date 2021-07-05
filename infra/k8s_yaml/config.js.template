@@ -1,0 +1,8 @@
+window.env = {
+    "REACT_APP_CDP_ENVIRONMENT": "#{REACT_APP_CDP_ENVIRONMENT}",
+    "REACT_APP_CDP_API_URL": "#{REACT_APP_CDP_API_URL}",
+    "REACT_APP_CDP_VERSION": "#replace_the_current_version",
+    "REACT_APP_CDP_AUTHPROXY_URL": "#{REACT_APP_CDP_AUTHPROXY_URL}",
+    "REACT_APP_CDP_PRM_URL": "#{REACT_APP_CDP_PRM_URL}",
+    "REACT_APP_CDP_CURRENT_REGIONAL" : "#replace_the_current_region"
+  };

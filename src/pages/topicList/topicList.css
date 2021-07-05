@@ -1,0 +1,35 @@
+.font-interstate{
+  font-family: Interstate !important;
+}
+.font-interstate-extralight{
+  font-family: Interstate !important;
+  font-weight: 300 !important;
+}
+.topic-list-title{
+  font-size: 2rem;
+}
+.topic-list-subtitle{
+  font-size: 1.125rem;
+}
+.topic-list-holder{
+  min-height: 35vw;
+}
+.custonerlist-button{
+  background-color: #fff;
+  border-radius: 18px;
+  height: 2.5rem;
+}
+.custonerlist-button-icon{
+  background-color: #000000;
+  width:16px;
+  height: 16px;
+}
+.button-icon{
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.button-font{
+  height: 1.5rem;
+  line-height: 1.5rem;
+}

@@ -1,0 +1,14 @@
+.sidebar-item-custom{
+  color:rgba(255, 255, 255, 0.5) !important; 
+}
+.sidebar-item-custom:hover{
+  color:#ffffff!important; 
+}
+.sidebar-item-custom-active{
+  color:#ffffff!important; 
+}
+.list-header-col{
+  color: #666666;
+  font-weight: bold;
+  font-size: 0.6875rem;
+}

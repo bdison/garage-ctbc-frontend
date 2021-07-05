@@ -1,0 +1,140 @@
+.font-interstate{
+    font-family: Interstate !important;
+}
+.font-interstate-extralight{
+    font-family: Interstate !important;
+    font-weight: 300 !important;
+}
+.u-board-shadow{
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 4px #DDDDDD;
+}
+.u-hover-pointer:hover{
+    cursor: pointer;
+}
+.u-hover-not-allowed,
+.u-hover-not-allowed:hover{
+    cursor: not-allowed;
+}
+.spiff-table{
+    border: 2px solid gray;
+}
+
+td:nth-child(2), td:nth-child(3) { 
+    text-align: center;
+}
+
+.spiff_item_width {
+    width: 40%;
+}
+
+.spiff_context_width {
+    width: 30%;
+}
+
+.spiff_title {
+    font-weight: bold;
+}
+
+.spiff_subtitle {
+    font-size: 12px;
+}
+
+.spiff_subcontext {
+    font-size: 8px;
+}
+
+.spiff_note {
+    font-size: 10px;
+}
+
+.nav_active {
+    text-align: center;
+    border: 1px solid #DEE2E6 !important;
+    background-color: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+    color: #0096CC !important;
+    font-size: 13px;
+}
+
+.nav_deactive {
+    text-align: center;
+    border: 1px solid #EEEEEE !important;
+    background-color: #EEEEEE !important;
+    border-bottom-color: #DEE2E6 !important;
+    color: #BBBBBB !important;
+    font-size: 13px;
+}
+
+.pane_size {
+    max-width: 210px !important;
+    padding-left: 0px;
+}
+
+.pane_icon {
+    margin-right: 2px;
+    color: #34CCE7;
+}
+
+.pane_number {
+    font-size: 25px;
+    vertical-align: "-webkit-baseline-middle";
+}
+
+.pane_title {
+    font-weight: bold;
+    font-size: 14;
+    color: #000000;
+}
+
+.pane_subtitle {
+    font-size: 8;
+    color: #34CCE7;
+}
+
+.circle_progress {
+    display: block;
+    margin: auto;
+}
+.tier-revenue-bar{
+    color: #FFFFFF;
+    padding: 3px;
+    border-radius: 6px;
+    font-size: 0.825rem;
+    line-height: 1rem;
+    font-weight: bold;
+}
+.tier_revenue_bar_passive {
+    background-color: #00A94F;
+}
+.tier_revenue_bar_negative {
+    background-color: #DB3D44;
+}
+.tier_revenue_context {
+    font-size: 1.625rem;
+    font-weight: normal;
+    letter-spacing: 0.05rem;
+}
+
+.tier_revenue_subtitle {
+    font-size: 1rem;
+    font-weight: bold;
+}
+.goal-label{
+    border-radius: 3px;
+    background-color: #AAAAAA;
+    color:#ffffff;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    width:9ch;
+    line-height: 1rem;
+    height: 1rem;
+}
+.tier-revenue-board{
+    border-radius: 6px;
+}
+
+.panes-router-board{
+    border-radius: 8px;
+}

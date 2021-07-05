@@ -1,0 +1,45 @@
+.unchange-color {
+  color: #0096cc;
+  border: 4px solid #0096cc !important;
+}
+
+.increase-color {
+  color: #33ba72;
+  border: 4px solid #33ba72 !important;
+}
+
+.decrease-color {
+  color: #e15054;
+  border: 4px solid #e15054 !important;
+}
+
+.predict-header {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 30px;
+  border-radius: 4px 4px 0px 0px;
+  font-weight: 900;
+}
+
+.predict-bottom {
+  font-weight: 900;
+  text-align: center;
+  border: 4px solid #888888;
+  border-radius: 0px 0px 4px 4px;
+  height: 62.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-header-font {
+  font-size: 0.8rem;
+}
+
+.status-bottom-font {
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
