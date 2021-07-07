@@ -1,10 +1,13 @@
-FROM node
+FROM node:12-alpine
+RUN mkdir /app
 WORKDIR /app
-RUN cd /app
-COPY . /app
+COPY package.json /app
 RUN pwd
 RUN ls -al
 RUN npm ci
+COPY . /app
+RUN pwd
+RUN ls -al
 RUN npm run build
 
 
