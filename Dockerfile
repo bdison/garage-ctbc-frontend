@@ -3,7 +3,8 @@ FROM node:12-alpine
 # RUN apk add libtool automake autoconf nasm
 RUN pwd
 RUN ls -al
-RUN cd /workspace/
+WORKDIR /app
+COPY . /app
 RUN npm install
 RUN npm run build
 
