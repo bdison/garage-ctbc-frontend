@@ -2,6 +2,7 @@ FROM node:12-alpine
 RUN apk add --no-cache \
     autoconf \
     automake \
+    autoconf \
     bash \
     g++ \
     libc6-compat \
