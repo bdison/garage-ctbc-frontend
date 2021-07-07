@@ -3,6 +3,7 @@ RUN apk add --no-cache \
     autoconf \
     automake \
     autoconf \
+    libtool \
     bash \
     g++ \
     libc6-compat \
