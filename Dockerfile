@@ -1,5 +1,5 @@
 FROM node:16-alpine
-RUN apk add libtool automake autoconf nasm gcc
+RUN apk add libtool automake autoconf nasm gcc make python
 WORKDIR /app
 RUN cd /app
 COPY . /app
