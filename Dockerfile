@@ -1,4 +1,4 @@
-FROM node:alpine:3.11
+FROM node:16-alpine
 RUN apk add libtool automake autoconf nasm gcc
 WORKDIR /app
 RUN cd /app
