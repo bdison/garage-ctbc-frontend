@@ -1,15 +1,9 @@
 FROM node:12-alpine
+# RUN apk update & apk upgrade
+# RUN apk add libtool automake autoconf nasm
+RUN npm install
+RUN npm run build
 
-RUN apk add --no-cache \
-    autoconf \
-    automake \
-    bash \
-    g++ \
-    libc6-compat \
-    libjpeg-turbo-dev \
-    libpng-dev \
-    make \
-    nasm
 
 FROM nginx:1.19
 EXPOSE 80
