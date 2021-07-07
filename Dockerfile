@@ -1,7 +1,9 @@
 FROM node:12-alpine
 # RUN apk update & apk upgrade
 # RUN apk add libtool automake autoconf nasm
-RUN cd /workspace/output/
+RUN pwd
+RUN ls -al
+RUN cd /workspace/
 RUN npm install
 RUN npm run build
 
