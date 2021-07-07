@@ -1,5 +1,5 @@
 FROM node:12-alpine
-RUN apk add libtool automake autoconf nasm
+RUN apk add libtool automake autoconf nasm gcc
 WORKDIR /app
 RUN cd /app
 COPY . /app
