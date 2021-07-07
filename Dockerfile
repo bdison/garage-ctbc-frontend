@@ -1,10 +1,11 @@
 FROM node:12-alpine
-# RUN apk update & apk upgrade
-# RUN apk add libtool automake autoconf nasm
+RUN apk update & apk upgrade
+RUN apk add libtool automake autoconf nasm
+WORKDIR /app
+RUN cd /app
+COPY . /app
 RUN pwd
 RUN ls -al
-WORKDIR /app
-COPY . /app
 RUN npm install
 RUN npm run build
 
