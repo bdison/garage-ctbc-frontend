@@ -5,7 +5,7 @@ RUN cd /app
 COPY . /app
 RUN pwd
 RUN ls -al
-RUN npm install
+RUN npm ci
 RUN npm run build
 
 
