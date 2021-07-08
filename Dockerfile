@@ -19,6 +19,7 @@ WORKDIR /app
 # RUN npm install
 COPY . /app
 RUN ls -al
+RUN npm i npm-run-all
 RUN npm install
 RUN ls -al
 RUN npm run build
