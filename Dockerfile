@@ -13,14 +13,16 @@ RUN apk add --no-cache \
     nasm
 RUN mkdir /app
 WORKDIR /app
-COPY package.json /app
-RUN pwd
+# COPY package.json /app
+# RUN pwd
+# RUN ls -al
+# RUN npm install
+COPY . /app
 RUN ls -al
 RUN npm install
-COPY . /app
-RUN pwd
 RUN ls -al
-RUN npm run-script build
+RUN npm run build
+RUN ls -al
 
 
 FROM nginx:1.19
