@@ -14,7 +14,6 @@ RUN apk add --no-cache \
 RUN mkdir /app
 WORKDIR /app
 COPY . /app
-RUN npm i npm-run-all
 RUN npm install
 RUN npm run build
 RUN ls -al
