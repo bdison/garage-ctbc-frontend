@@ -20,7 +20,7 @@ RUN npm install
 COPY . /app
 RUN pwd
 RUN ls -al
-RUN npm run build
+RUN npm run-script build
 
 
 FROM nginx:1.19
