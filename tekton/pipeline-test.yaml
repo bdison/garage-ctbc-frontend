@@ -1,0 +1,69 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  annotations:
+    app.openshift.io/runtime: nodejs
+  name: ctbc-frontend-clone-and-build-pipeline
+spec:
+  workspaces:
+    - name: pipeline-shared-data
+      description: |
+        This workspace stores the cloned repository and is available to all steps
+  params:
+    - name: pathToContext
+      description: The path to the build context, used by Kaniko - within the workspace
+      default: .
+    - name: image-repo
+      type: string
+      description: Docker image name
+      default: quay.io/bdisonlin/ctbc-front-buildah
+  tasks:
+    - name: clone-repository
+      params:
+        - name: url
+          value: https://github.com/bdison/garage-ctbc-frontend.git
+      taskRef:
+        kind: Task
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: pipeline-shared-data
+    - name: build-image-from-source
+      taskRef:
+        name: build-image-from-source
+      workspaces:
+        - name: source
+          workspace: pipeline-shared-data
+      params:
+        - name: pathToContext
+          value: "$(params.pathToContext)"
+        - name: imageUrl
+          value: "$(params.image-repo)"
+        - name: imageTag
+          value: "$(tasks.clone-repository.results.commit)"
+      runAfter:
+        - clone-repository
+    - name: run-tests
+      taskRef:
+        name: npm
+      workspaces:
+        - name: source
+          workspace: pipeline-shared-data
+      params:
+        - name: ARGS
+          value:
+            - test
+      runAfter:
+        - install-dependencies
+    - name: build-image
+      runAfter:
+        - run-tests
+      params:
+        - name: IMAGE
+          value: "$(params.image-repo):$(tasks.clone-repository.results.commit)"
+      taskRef:
+        kind: Task
+        name: buildah
+      workspaces:
+        - name: source
+          workspace: pipeline-shared-data

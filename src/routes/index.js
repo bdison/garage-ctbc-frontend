@@ -1,35 +1,35 @@
 import async from "../components/Async";
 import authValid from "../pages/reference/HOC/AuthValid";
 import { Grid as GridIcon, Layers as LayersIcon } from "react-feather";
-// import SFDCLogin from "../pages/sfdc";
-// import AuthHandling from "../pages/sfdc/authHandling";
-// import ResponseHandling from "../pages/sfdc/responseHandling";
+/* import SFDCLogin from "../pages/sfdc";
+ import AuthHandling from "../pages/sfdc/authHandling";
+ import ResponseHandling from "../pages/sfdc/responseHandling"; */
 
 const Login = async(() => import("../pages/signIn"));
 const Dashboard = async(() => import("../pages/dashboard"));
 const TopicList = async(() => import("../pages/topicList"));
 const CustomerList = async(() => import("../pages/customerList"));
 
-// const SFDCLoginRoutes = {
-//   path: "/",
-//   name: "SFDC Login",
-//   component: authValid(SFDCLogin),
-//   children: null
-// };
+/* const SFDCLoginRoutes = {
+  path: "/",
+  name: "SFDC Login",
+  component: authValid(SFDCLogin),
+  children: null
+};
 
-// const AuthHandlingRoutes = {
-//   path: "/AuthHandling",
-//   name: "Auth Handling",
-//   component: AuthHandling,
-//   children: null
-// };
+const AuthHandlingRoutes = {
+  path: "/AuthHandling",
+  name: "Auth Handling",
+  component: AuthHandling,
+  children: null
+};
 
-// const ResponseHandlingRoutes = {
-//   path: "/ResponseHandling",
-//   name: "Response Handling",
-//   component: ResponseHandling,
-//   children: null
-// };
+const ResponseHandlingRoutes = {
+  path: "/ResponseHandling",
+  name: "Response Handling",
+  component: ResponseHandling,
+  children: null
+}; */
 
 
 const loginRoutes = {
@@ -39,7 +39,7 @@ const loginRoutes = {
   children: null
 };
 
-// CTBC Portal
+// CDP Portal
 const DashboardRoutes = {
   path: "/Dashboard",
   name: "Dashboard",
@@ -118,7 +118,9 @@ export const dashboard = [
 
 
 // All routes
-export default [
+export const exportedObject = [
   DashboardRoutes,
   TopicListRoutes
 ];
+
+export default exportedObject;

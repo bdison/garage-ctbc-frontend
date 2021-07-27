@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import { withCookies } from "react-cookie";
 import { checkSignInToken, initAuthReducer } from "../../../redux/actions/authActions";
 
-export default function (ComposedComponent) {
+const fn = (ComposedComponent) => {
   class AuthValid extends Component {
     constructor(props) {
       super(props);
@@ -67,4 +67,6 @@ export default function (ComposedComponent) {
     };
   };
   return connect(mapStateToProps, mapDispatchToProps)(withCookies(AuthValid));
-}
+};
+
+export default fn;
