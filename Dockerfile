@@ -19,6 +19,6 @@ RUN npm run build
 
 FROM nginx
 COPY --from=build-env /app/build /usr/share/nginx/html
-COPY ./infra/nginx/default.conf /etc/nginx/conf.d/default.conf
+# COPY ./infra/nginx/default.conf /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]
 EXPOSE 80
