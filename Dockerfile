@@ -17,8 +17,8 @@ RUN npm install
 COPY . /app
 RUN npm run build
 
-FROM public.ecr.aws/k4s7y7s4/pls-nginx-backup:1.18
+FROM nginx
 COPY --from=build-env /app/build /usr/share/nginx/html
 # COPY ./infra/nginx/default.conf /etc/nginx/conf.d/default.conf
 # CMD ["nginx", "-g", "daemon off;"]
-EXPOSE 7784
+EXPOSE 5000
