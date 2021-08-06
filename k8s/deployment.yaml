@@ -8,7 +8,7 @@ metadata:
     app: bdisonlin-live-pfs
     app.kubernetes.io/instance: bdisonlin-live-pfs
     app.kubernetes.io/name: bdisonlin-live-pfs
-    app.openshift.io/runtime: React Js
+    app.openshift.io/runtime: react
   name: bdisonlin-live-pfs
 spec:
   progressDeadlineSeconds: 600
