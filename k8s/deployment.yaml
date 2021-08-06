@@ -35,7 +35,7 @@ spec:
           imagePullPolicy: IfNotPresent
           name: bdisonlin-live-pfs
           ports:
-            - containerPort: 5000
+            - containerPort: 8080
               name: http
               protocol: TCP
           resources: {}
