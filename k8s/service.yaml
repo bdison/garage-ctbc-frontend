@@ -11,7 +11,7 @@ spec:
     - name: http
       port: 80
       protocol: TCP
-      targetPort: 5000
+      targetPort: 7784
   selector:
     app.kubernetes.io/instance: bdisonlin-live-pfs
     app.kubernetes.io/name: bdisonlin-live-pfs

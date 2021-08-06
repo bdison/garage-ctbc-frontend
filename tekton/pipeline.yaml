@@ -6,68 +6,68 @@ metadata:
   name: ctbc-frontend-clone-and-build-pipeline
 spec:
   workspaces:
-    - name: pipeline-shared-data
-      description: |
-        This workspace stores the cloned repository and is available to all steps
+  - name: pipeline-shared-data
+    description: |
+      This workspace stores the cloned repository and is available to all steps
   params:
-    - name: git-repo
-      type: string
-      description: Docker image name
-      default: https://github.com/bdison/garage-ctbc-frontend.git
-    - name: image-repo
-      type: string
-      description: Docker image name
-      default: quay.io/bdisonlin/ctbc-front-buildah
+  - name: git-repo
+    type: string
+    description: GitHub repo
+    default: https://github.com/bdison/garage-ctbc-frontend.git
+  - name: image-repo
+    type: string
+    description: Docker image repo
+    default: quay.io/bdisonlin/ctbc-front-buildah
   tasks:
-    - name: clone-repository
-      params:
-        - name: url
-          value: "$(params.git-repo)"
-      taskRef:
-        kind: Task
-        name: git-clone
-      workspaces:
-        - name: output
-          workspace: pipeline-shared-data
-    - name: build
-      runAfter:
-        - clone-repository
-      params:
-        - name: IMAGE
-          value: "$(params.image-repo)"
-      taskRef:
-        kind: Task
-        name: buildah
-      workspaces:
-        - name: source
-          workspace: pipeline-shared-data
-    - name: kustomize-build
-      runAfter:
-        - build
-      params:
-      - name: image-with-tag
+  - name: clone-repository
+    params:
+      - name: url
+        value: "$(params.git-repo)"
+    taskRef:
+      kind: Task
+      name: git-clone
+    workspaces:
+      - name: output
+        workspace: pipeline-shared-data
+  - name: build
+    runAfter:
+      - clone-repository
+    params:
+      - name: IMAGE
         value: "$(params.image-repo)"
-      - name: app-namespace
-        value: "ctbc-frontend-project"
-      - name: app-name
-        value: "bdisonlin-pipeline-from-scratch"      
-      taskRef:
-        kind: Task
-        name: kustomize-build
-      workspaces:
+    taskRef:
+      kind: Task
+      name: buildah
+    workspaces:
       - name: source
         workspace: pipeline-shared-data
-    - name: test-deploy
-      runAfter:
-      - kustomize-build
-      params:
-      - name: app-namespace
-        value: "ctbc-frontend-project"
-      - name: app-name
-        value: "bdisonlin-pipeline-from-scratch"
-      taskRef:
-        kind: Task
-        name: test-deploy
-      workspaces:
-      - name: source
-        workspace: pipeline-shared-data 
+  - name: kustomize-build
+    runAfter:
+      - build
+    params:
+    - name: image-with-tag
+      value: "$(params.image-repo)"
+    - name: app-namespace
+      value: "ctbc-frontend-project"
+    - name: app-name
+      value: "bdisonlin-pipeline-from-scratch"      
+    taskRef:
+      kind: Task
+      name: kustomize-build
+    workspaces:
+    - name: source
+      workspace: pipeline-shared-data
+  - name: test-deploy
+    runAfter:
+    - kustomize-build
+    params:
+    - name: app-namespace
+      value: "ctbc-frontend-project"
+    - name: app-name
+      value: "bdisonlin-pipeline-from-scratch"
+    taskRef:
+      kind: Task
+      name: test-deploy
+    workspaces:
+    - name: source
+      workspace: pipeline-shared-data 
