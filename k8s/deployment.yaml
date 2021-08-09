@@ -35,10 +35,12 @@ spec:
           imagePullPolicy: Always
           name: bdisonlin-live-pfs
           ports:
-            - containerPort: 8080
+            - containerPort: 5000
+              name: http
+              protocol: TCP
           resources: {}
-          imagePullSecrets:
-            - name: application-images-ocp-pull-secret
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
