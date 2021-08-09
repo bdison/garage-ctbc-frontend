@@ -19,8 +19,8 @@ RUN npm run build
 
 FROM nginx:1.14.2
 COPY --from=build-env /app/build /usr/share/nginx/html
-RUN chgrp -R 0 /etc/nginx/ /var/cache/nginx /var/run /var/log/nginx  && \ 
-    chmod -R g+rwX /etc/nginx/ /var/cache/nginx /var/run /var/log/nginx
+RUN chgrp -R 0 /etc/nginx/ /var/cache/nginx /var/log/nginx  && \ 
+    chmod -R g+rwX /etc/nginx/ /var/cache/nginx /var/log/nginx
 
 # users are not allowed to listen on priviliged ports
 RUN sed -i.bak 's/listen\(.*\)80;/listen 8080;/' /etc/nginx/conf.d/default.conf
