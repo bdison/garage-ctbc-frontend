@@ -7,7 +7,8 @@ import ProfileBoard from "./profileBoard";
 import ListBoard from "./listBoard";
 import RevenueBoard from "./revenueBoard";
 import SpiffBoard from "./spiffBoard";
-// import * as Setup from "../../utility/common";
+import GoogleChart from "./googleChart";
+import * as Setup from "../../utility/common";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -18,11 +19,11 @@ class Dashboard extends React.Component {
   componentDidMount = () => {
     document.title = "Garage";
     this.props.initDashboardData();
-    this.props.getDashboardData();
+    // this.props.getDashboardData();
 
-    // const { cookies, locationPathName } = this.props;
-    // const GET_DASHBOARD_DETAIL_FQDN = Setup.connectSteam("getuccpartnerdetail");
-    // this.props.getDashboardData(GET_DASHBOARD_DETAIL_FQDN, cookies, locationPathName);
+    const { cookies, locationPathName } = this.props;
+    const GET_DASHBOARD_DETAIL_FQDN = Setup.connectSteam("three_mounth_predict");
+    this.props.getDashboardData(GET_DASHBOARD_DETAIL_FQDN, cookies, locationPathName);
   }
 
   render() {
@@ -38,6 +39,7 @@ class Dashboard extends React.Component {
             {/* <ListBoard /> */}
             {/* <RevenueBoard /> */}
             <SpiffBoard />
+            <GoogleChart />
           </Col>
         </Row>
       </Container>
@@ -49,8 +51,8 @@ class Dashboard extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     initDashboardData: () => dispatch(initDashboardData()),
-    // getDashboardData: (apiDomain, cookieProps, pathName) => dispatch(getDashboardData(apiDomain, cookieProps, pathName))
-    getDashboardData: () => dispatch(getDashboardData())
+    getDashboardData: (apiDomain, cookieProps, pathName) => dispatch(getDashboardData(apiDomain, cookieProps, pathName))
+    // getDashboardData: () => dispatch(getDashboardData())
   };
 };
 

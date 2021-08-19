@@ -8,8 +8,9 @@ const hostEnvironment = window.env.REACT_APP_CTBC_ENVIRONMENT;
 export const getRequestHeader = (cookies) => {
     let header = {
         "Content-Type": "application/json",
-        "Token": cookies.get("token"),
-        "Username": cookies.get("username"),
+        "X-Require-Whisk-Auth": "7361696207559607"
+        // "Token": cookies.get("token"),
+        // "Username": cookies.get("username"),
         // "traceid": cookies.get("traceid")
     };
     return header;

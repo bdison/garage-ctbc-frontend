@@ -1,8 +1,8 @@
 import * as types from "../constants";
-// import Superagent from "superagent";
-// import * as Setup from "../../utility/common";
+import Superagent from "superagent";
+import * as Setup from "../../utility/common";
 
-// const CTBC_API_TIMEOUT = Setup.apiTimeout();
+const CTBC_API_TIMEOUT = Setup.apiTimeout();
 
 export const initDashboardData = () => {
   return {
@@ -10,70 +10,70 @@ export const initDashboardData = () => {
   };
 };
 
-// const parseStringToObject = (stringArray) => {
-//   return JSON.parse(stringArray);
-// };
+const parseStringToObject = (stringArray) => {
+  return JSON.parse(stringArray);
+};
 
-// const errorhandling = (errMessage, pathName, cookieProps, dispatch) => {
-//   Setup.logoutEvent(cookieProps);
-//   if (pathName !== "/") {
-//     Setup.notificationMessage("warning", "Notification", "Token Expired");
-//     dispatch({
-//       type: types.AUTH_ERROR,
-//       payload: { pathName, errMessage }
-//     });
-//   } else if (pathName === "/") {
-//     dispatch({
-//       type: types.AUTH_ERROR,
-//       payload: { pathName, errMessage }
-//     });
-//   }
-// };
+const errorhandling = (errMessage, pathName, cookieProps, dispatch) => {
+  Setup.logoutEvent(cookieProps);
+  if (pathName !== "/") {
+    Setup.notificationMessage("warning", "Notification", "Token Expired");
+    dispatch({
+      type: types.AUTH_ERROR,
+      payload: { pathName, errMessage }
+    });
+  } else if (pathName === "/") {
+    dispatch({
+      type: types.AUTH_ERROR,
+      payload: { pathName, errMessage }
+    });
+  }
+};
 
-// export const getDashboardData = (apiDomain, "cookieProps", "pathName") => {
-export const getDashboardData = () => {
+export const getDashboardData = (apiDomain, cookieProps, pathName) => {
+// export const getDashboardData = () => {
   return (dispatch) => {
-    // Superagent
-    //   .get(apiDomain)
-    //   .set(Setup.getRequestHeader(cookieProps))
-    //   .ok(() => true)
-    //   .timeout(CTBC_API_TIMEOUT)
-    //   .then(res => {
-    //     switch (res.status) {
-    //       case 200: {
-    //         const RevenueCustomerData = parseStringToObject(res.body.result.RevenueCustomerData);
-            // const TierData = { "CurrentlyGauge": { "CurrentTier": "Silver", "NextTier": "Gold", "OverallRate": 0.030, "NewRevenueLeft": 590500, "TotalRevenueLeft": 208260 }, "AttainmentGauge": [ { "Subject": "New", "RetainGoal": 20000, "UpgradeGoal": 100000, "AttainmentRate": 0.160, "RevenueYoYRate": 2.000, "RevenueValue": 40500 }, { "Subject": "Renewal", "RetainGoal": 20000, "UpgradeGoal": null, "AttainmentRate": 0.510, "RevenueYoYRate": -0.300, "RevenueValue": 1540 }, { "Subject": "Total", "RetainGoal": 50000, "UpgradeGoal": 250000, "AttainmentRate": 0.160, "RevenueYoYRate": 2.000, "RevenueValue": 41500 } ] };
-            // const ListCounterData = { "NewRevenueField": [ { "Key": "UpgradeOppty", "Title": "Upgrade Oppty", "SubTitle": "upgrade", "Count": 45 }, { "Key": "SaaSPotential", "Title": "SaaS Potential", "SubTitle": "start SaaS", "Count": 7 } ], "RenewalRevenueField": [ { "Key": "ExpiringOrder", "Title": "Expiring Order", "SubTitle": "renew", "Count": 59 }, { "Key": "LostOrder", "Title": "Lost Order", "SubTitle": "remedy", "Count": 3 } ], "MSPRevenueField": [ { "Key": "SeatIncrease", "Title": "Seat Increase", "SubTitle": "add seats", "Count": 5 }, { "Key": "SeatDecrease", "Title": "Seat Decrease", "SubTitle": "reduce loss", "Count": 0 } ] };
-            // const ProfileData = { "Id": "4e4142552d55532d313635373739", "PartnerName": "AAAA Company Inc.", "PartnerType": "Hybrid", "ContactName": "Sales Team", "ContactEmail": "salesteam@.com", "ContactNumber": "1-888-977-4200" };
-    //         const TierData = parseStringToObject(res.body.result.TierData);
-    //         const ListCounterData = parseStringToObject(res.body.result.ListCounterData);
-    //         const ProfileData = parseStringToObject(res.body.result.ProfileData);
-    //         const apiResult = {RevenueCustomerData, TierData, ListCounterData, ProfileData};
-            
-    //         dispatch({
-    //           type: types.DASHBOARD_STATUS_SUCCESS,
-    //           apiResult
-    //         });
-
-    //         break;
-    //       }
-    //       case 401: {
-    //         errorhandling(res.body.result, pathName, cookieProps, dispatch);
-    //         break;
-    //       }
-    //       default:
-    //         dispatch({
-    //           type: types.DASHBOARD_STATUS_ERROR
-    //         });
-    //         break;
-    //     }
-    //   })
-    //   .catch(err => {
-    //     dispatch({
-    //       type: types.DASHBOARD_STATUS_ERROR,
-    //       err
-    //     });
-    //   });
+    Superagent
+      .post(apiDomain)
+      .set(Setup.getRequestHeader(cookieProps))
+      .send('{"target":"three_mounth_predict"}')
+      .ok(() => true)
+      .timeout(CTBC_API_TIMEOUT)
+      .then(res => {
+        switch (res.status) {
+          case 200: {
+            console.log(res.body.data.output)
+            const RevenueCustomerData = parseStringToObject(res.body.data);
+            const TierData = { "CurrentlyGauge": { "CurrentTier": "Silver", "NextTier": "Gold", "OverallRate": 0.030, "NewRevenueLeft": 590500, "TotalRevenueLeft": 208260 }, "AttainmentGauge": [ { "Subject": "New", "RetainGoal": 20000, "UpgradeGoal": 100000, "AttainmentRate": 0.160, "RevenueYoYRate": 2.000, "RevenueValue": 40500 }, { "Subject": "Renewal", "RetainGoal": 20000, "UpgradeGoal": null, "AttainmentRate": 0.510, "RevenueYoYRate": -0.300, "RevenueValue": 1540 }, { "Subject": "Total", "RetainGoal": 50000, "UpgradeGoal": 250000, "AttainmentRate": 0.160, "RevenueYoYRate": 2.000, "RevenueValue": 41500 } ] };
+            const ListCounterData = { "NewRevenueField": [ { "Key": "UpgradeOppty", "Title": "Upgrade Oppty", "SubTitle": "upgrade", "Count": 45 }, { "Key": "SaaSPotential", "Title": "SaaS Potential", "SubTitle": "start SaaS", "Count": 7 } ], "RenewalRevenueField": [ { "Key": "ExpiringOrder", "Title": "Expiring Order", "SubTitle": "renew", "Count": 59 }, { "Key": "LostOrder", "Title": "Lost Order", "SubTitle": "remedy", "Count": 3 } ], "MSPRevenueField": [ { "Key": "SeatIncrease", "Title": "Seat Increase", "SubTitle": "add seats", "Count": 5 }, { "Key": "SeatDecrease", "Title": "Seat Decrease", "SubTitle": "reduce loss", "Count": 0 } ] };
+            const ProfileData = { "Id": "4e4142552d55532d313635373739", "PartnerName": "AAAA Company Inc.", "PartnerType": "Hybrid", "ContactName": "Sales Team", "ContactEmail": "salesteam@.com", "ContactNumber": "1-888-977-4200" };
+            // const TierData = parseStringToObject(res.body.result.TierData);
+            // const ListCounterData = parseStringToObject(res.body.result.ListCounterData);
+            // const ProfileData = parseStringToObject(res.body.result.ProfileData);
+            const apiResult = {RevenueCustomerData, TierData, ListCounterData, ProfileData};
+            dispatch({
+              type: types.DASHBOARD_STATUS_SUCCESS,
+              apiResult
+            });
+            break;
+          }
+          case 401: {
+            errorhandling(res.body.result, pathName, cookieProps, dispatch);
+            break;
+          }
+          default:
+            dispatch({
+              type: types.DASHBOARD_STATUS_ERROR
+            });
+            break;
+        }
+      })
+      .catch(err => {
+        dispatch({
+          type: types.DASHBOARD_STATUS_ERROR,
+          err
+        });
+      });
 
     const fakeResponse = {
       "ProfileData": {
